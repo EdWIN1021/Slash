@@ -31,8 +31,11 @@ protected:
 	void EKeyPressed();
 	void Attack();
 
+	void PlayAttackMontage();
+
 private:
 	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
+	EActionState	ActionState = EActionState::EAS_Unoccupied;
 	
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent* CameraBoom;
