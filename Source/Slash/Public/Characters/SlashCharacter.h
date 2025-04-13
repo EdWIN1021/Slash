@@ -3,12 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CharacterTypes.h"
 #include "GameFramework/Character.h"
 #include "SlashCharacter.generated.h"
 
 class AItem;
 class USpringArmComponent;
 class UCameraComponent;
+
+
 
 UCLASS()
 class SLASH_API ASlashCharacter : public ACharacter
@@ -29,6 +32,8 @@ protected:
 	void EKeyPressed();
 
 private:
+	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
+	
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent* CameraBoom;
 
@@ -39,9 +44,6 @@ private:
 	AItem* OverlappingItem;
 
 public:
-	FORCEINLINE void SetOverlappingItem(AItem* Item) {OverlappingItem = Item; };
+	FORCEINLINE void SetOverlappingItem(AItem* Item) { OverlappingItem = Item; };
+	FORCEINLINE ECharacterState GetCharacterState() const { return CharacterState; };
 };
-
-
-
-
