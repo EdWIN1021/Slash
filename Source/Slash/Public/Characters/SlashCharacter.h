@@ -35,7 +35,9 @@ protected:
 
 private:
 	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
-	EActionState	ActionState = EActionState::EAS_Unoccupied;
+
+	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = true))
+	EActionState ActionState = EActionState::EAS_Unoccupied;
 	
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent* CameraBoom;
