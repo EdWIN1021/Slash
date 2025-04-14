@@ -2,7 +2,6 @@
 
 
 #include "Items/Weapons/Weapon.h"
-#include "Characters/SlashCharacter.h"
 
 void AWeapon::Equip(USceneComponent* InParent, FName InSocketName)
 {
