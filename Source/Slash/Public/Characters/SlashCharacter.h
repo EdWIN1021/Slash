@@ -7,6 +7,7 @@
 #include "GameFramework/Character.h"
 #include "SlashCharacter.generated.h"
 
+class AWeapon;
 class AItem;
 class USpringArmComponent;
 class UCameraComponent;
@@ -36,6 +37,10 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void AttackEnd();
 	bool CanAttack();
+
+	void PlayEquipMontage(FName SectionName);
+	bool CanDisarm();
+	bool CanArm();
 private:
 	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
 
@@ -54,6 +59,12 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
 	UAnimMontage* AttackMontage;
 
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	UAnimMontage* EquipMontage;
+
+	UPROPERTY(VisibleAnywhere, Category = Weapon)
+	AWeapon* EquippedWeapon;
+	
 public:
 	FORCEINLINE void SetOverlappingItem(AItem* Item) { OverlappingItem = Item; };
 	FORCEINLINE ECharacterState GetCharacterState() const { return CharacterState; };
