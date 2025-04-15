@@ -194,6 +194,7 @@ void ASlashCharacter::PlayEquipMontage(FName SectionName)
 void ASlashCharacter::AttackEnd()
 {
 	ActionState = EActionState::EAS_Unoccupied;
+	
 }
 
 
