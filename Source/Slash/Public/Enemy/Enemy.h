@@ -19,6 +19,11 @@ public:
 
 	virtual void GetHit(const FVector& ImpactPoint) override;
 
+private:
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	UAnimMontage* HitReactMontage;
+	
 protected:
 	virtual void BeginPlay() override;
+	void PlayHitReactMontage();
 };
